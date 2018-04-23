@@ -35,7 +35,7 @@ for n in range(1,50):
     print n
     pageurl=start_url
     if n>1:
-        pageurl=" https://www.xin.com/suzhou/sn_y2/i"+bytes(n)+"/"
+        pageurl=" https://www.xin.com/suzhou/i"+bytes(n)+"/"
 
     try:
  
