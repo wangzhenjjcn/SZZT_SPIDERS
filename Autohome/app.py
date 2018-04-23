@@ -9,7 +9,7 @@ for lines in readed_file:
         data = lines.strip("\n")
         alldatas[data]="readed"
 
-connection = pymysql.connect(host='127.0.0.1', port=3306, user='test', password='test', db='autohome', charset='gbk', cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect(host='127.0.0.1', port=3306, user='test', password='test', db='cars', charset='gbk', cursorclass=pymysql.cursors.DictCursor)
 cursor = connection.cursor()
 
  
@@ -176,7 +176,7 @@ for n in range(1,100):
                              
                             sqlValues="\'"+id+"\',\'"+che_yuan+"\',\'"+title+"\',\'"+price+"\',\'"+ mils+"\',\'"+registered_year+"\',\'"+ registered_month+"\',\'"+gear +"\',\'"+ displacement +"\',\'"+location+"\',\'"+ vehicle_emissions_standard+"\',\'"+nian_jian+"\',\'"+bao_xian +"\',\'"+ zhi_bao +"\',\'"+pai_fang+"\',\'"+ guo_hu+"\',\'"+yong_tu+"\',\'"+ wei_bao+"\',\'"+shang_jia +"\',\'"+jian_jie +"\',\'"+fa_dong_ji+"\',\'"+ bian_su_qi+"\',\'"+ji_bie+"\',\'"+ yan_se+"\',\'"+ran_you +"\',\'"+ qu_dong +"\',\'"+kou_bei+"\',\'"+ tu+"\',\'"+shang_jia_dian_hua+"\',\'"+ shang_jia_di_zhi+"\',\'"+shang_jia_zai_shou +"\',\'"+ shang_jia_yi_shou +"\',\'"+shang_jia_lei_xin+"\'"
                            
-                            sql ="INSERT INTO `car` (`id`, `che_yuan`, `title`, `price`, `mils`, `registered_year`, `registered_month`, `gear`, `displacement`, `location`, `vehicle_emissions_standard`, `nian_jian`, `bao_xian`, `zhi_bao`, `pai_fang`, `guo_hu`, `yong_tu`, `wei_bao`, `shang_jia`, `jian_jie`, `fa_dong_ji`, `bian_su_qi`, `ji_bie`, `yan_se`, `ran_you`, `qu_dong`, `kou_bei`, `tu`, `shang_jia_dian_hua`, `shang_jia_di_zhi`, `shang_jia_zai_shou`, `shang_jia_yi_shou`, `shang_jia_lei_xin`) VALUES (" + sqlValues+ ")"
+                            sql ="INSERT INTO `autohome` (`id`, `che_yuan`, `title`, `price`, `mils`, `registered_year`, `registered_month`, `gear`, `displacement`, `location`, `vehicle_emissions_standard`, `nian_jian`, `bao_xian`, `zhi_bao`, `pai_fang`, `guo_hu`, `yong_tu`, `wei_bao`, `shang_jia`, `jian_jie`, `fa_dong_ji`, `bian_su_qi`, `ji_bie`, `yan_se`, `ran_you`, `qu_dong`, `kou_bei`, `tu`, `shang_jia_dian_hua`, `shang_jia_di_zhi`, `shang_jia_zai_shou`, `shang_jia_yi_shou`, `shang_jia_lei_xin`) VALUES (" + sqlValues+ ")"
                             
                             try:
                                     cursor.execute(sql)
@@ -185,7 +185,7 @@ for n in range(1,100):
                             except Exception,e:
                                 if "Duplicate" in str(e) or "PRIMARY" in str(e):
                                         print "try again"
-                                        sql ="UPDATE  `car` SET `title`=\'"+title+"\',`che_yuan`=\'"+che_yuan+"\',  `price`=\'"+price+"\', `mils`=\'"+mils+"\', `registered_year`=\'"+registered_year+"\', `registered_month`=\'"+registered_month+"\', `gear`=\'"+gear+"\', `displacement`=\'"+displacement+"\', `location`=\'"+location+"\',  `vehicle_emissions_standard`=\'"+vehicle_emissions_standard+"\', `nian_jian`=\'"+nian_jian+"\', `bao_xian`=\'"+bao_xian+"\', `zhi_bao`=\'"+zhi_bao+"\', `pai_fang`=\'"+pai_fang+"\', `guo_hu`=\'"+guo_hu+"\',  `yong_tu`=\'"+yong_tu+"\', `wei_bao`=\'"+wei_bao+"\', `shang_jia`=\'"+shang_jia+"\', `jian_jie`=\'"+jian_jie+"\', `fa_dong_ji`=\'"+fa_dong_ji+"\', `bian_su_qi`=\'"+bian_su_qi+"\',  `ji_bie`=\'"+ji_bie+"\', `yan_se`=\'"+yan_se+"\', `ran_you`=\'"+ran_you+"\', `qu_dong`=\'"+qu_dong+"\', `kou_bei`=\'"+kou_bei+"\', `tu`=\'"+tu+"\',  `shang_jia_dian_hua`=\'"+shang_jia_dian_hua+"\', `shang_jia_di_zhi`=\'"+shang_jia_di_zhi+"\', `shang_jia_zai_shou`=\'"+shang_jia_zai_shou+"\', `shang_jia_yi_shou`=\'"+shang_jia_yi_shou+"\', `shang_jia_lei_xin`=\'"+shang_jia_lei_xin+"\' WHERE (`id`=\'"+id+"\')"
+                                        sql ="UPDATE  `autohome` SET `title`=\'"+title+"\',`che_yuan`=\'"+che_yuan+"\',  `price`=\'"+price+"\', `mils`=\'"+mils+"\', `registered_year`=\'"+registered_year+"\', `registered_month`=\'"+registered_month+"\', `gear`=\'"+gear+"\', `displacement`=\'"+displacement+"\', `location`=\'"+location+"\',  `vehicle_emissions_standard`=\'"+vehicle_emissions_standard+"\', `nian_jian`=\'"+nian_jian+"\', `bao_xian`=\'"+bao_xian+"\', `zhi_bao`=\'"+zhi_bao+"\', `pai_fang`=\'"+pai_fang+"\', `guo_hu`=\'"+guo_hu+"\',  `yong_tu`=\'"+yong_tu+"\', `wei_bao`=\'"+wei_bao+"\', `shang_jia`=\'"+shang_jia+"\', `jian_jie`=\'"+jian_jie+"\', `fa_dong_ji`=\'"+fa_dong_ji+"\', `bian_su_qi`=\'"+bian_su_qi+"\',  `ji_bie`=\'"+ji_bie+"\', `yan_se`=\'"+yan_se+"\', `ran_you`=\'"+ran_you+"\', `qu_dong`=\'"+qu_dong+"\', `kou_bei`=\'"+kou_bei+"\', `tu`=\'"+tu+"\',  `shang_jia_dian_hua`=\'"+shang_jia_dian_hua+"\', `shang_jia_di_zhi`=\'"+shang_jia_di_zhi+"\', `shang_jia_zai_shou`=\'"+shang_jia_zai_shou+"\', `shang_jia_yi_shou`=\'"+shang_jia_yi_shou+"\', `shang_jia_lei_xin`=\'"+shang_jia_lei_xin+"\' WHERE (`id`=\'"+id+"\')"
                                         try:
                                                 #print "try update"
                                                 cursor.execute(sql)
